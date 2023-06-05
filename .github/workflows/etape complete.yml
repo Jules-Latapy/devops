@@ -8,7 +8,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm install
+      - run: cd with-cypress-app && npm install
       - run: cd with-cypress-app && npm run build
       - run: ' [ -d "with-cypress-app/.next/" ]'
       - run: cd with-cypress-app && npm run dev
