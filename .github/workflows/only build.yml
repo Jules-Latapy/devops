@@ -1,4 +1,4 @@
-name: etape complete
+name: only build
 on: [push]
 jobs:
   check-bats-version:
