@@ -1,15 +1,30 @@
 name: CI/CD
 on: [push]
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
+      - uses: actions/cache@v3
+        with:
+          path: 'with-cypress-app/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: cd with-cypress-app && npm install
       - run: cd with-cypress-app && npm run build
+
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/cache@v3
+        with:
+          path: 'with-cypress-app/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
       - run: cd with-cypress-app && npm run e2e:headless
       - uses: actions/upload-artifact@v3
         with:
