@@ -11,3 +11,7 @@ jobs:
       - run: cd with-cypress-app && npm install
       - run: cd with-cypress-app && npm run build
       - run: cd with-cypress-app && npm run e2e:headless
+      - uses: actions/upload-artifact@v3
+        with:
+          name: e2e-video
+          path: with-cypress-app/cypress/videos/
