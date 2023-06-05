@@ -10,4 +10,4 @@ jobs:
           node-version: '18'
       - run: cd with-cypress-app && npm install
       - run: cd with-cypress-app && npm run build
-      - run: e2e:headless
+      - run: cd with-cypress-app && npm run e2e:headless
