@@ -10,5 +10,5 @@ jobs:
           node-version: '18'
       - run: cd with-cypress-app && npm install
     #  - run: cd with-cypress-app && npm run build
-      - run: ' [ -d "./with-cypress-app/.next/" ]'
+      - run: 'ls -a && [ -d "./with-cypress-app/.next/" ]'
       - run: cd with-cypress-app && npm run dev
