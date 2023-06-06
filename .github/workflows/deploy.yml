@@ -5,4 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ secrets.SSH_KEY }}" > ./standard.pem
-      - run: ssh admin@${{ secrets.VM_ADDRESS }} -i "./standard.pem" -y cd ./devops && git pull && cd ./with-cypress-app && pm2 reload all
+      - run: ssh admin@${{ secrets.VM_ADDRESS }} -i "./standard.pem" -y
+      - run: cd ./devops && git pull && cd ./with-cypress-app && pm2 reload all
