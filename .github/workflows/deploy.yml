@@ -1,0 +1,10 @@
+name: deploying
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ SSH_KEY }}" > ./standard.pem
+      - run: ssh admin@${{ VM_ADDRESS }} -i "./standard.pem"
+      - run: cd devops && git pull
+      - run: cd devops/with-cypress-app && npm run start
