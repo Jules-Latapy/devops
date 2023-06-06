@@ -4,6 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next build && pm2 start npm --name 'with-cypress' -- run start-pm2",
+    "start-pm2": "next start",
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
     "component": "cypress open --component",
