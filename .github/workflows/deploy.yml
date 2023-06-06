@@ -12,7 +12,6 @@ jobs:
               git pull;
               cd ./with-cypress-app;
               fuser -k 3000/tcp;   
-              npm run build;
-              npm run start;
+              npm run build | (npm run start )&;
              };
-             server_script&"
+             server_script"
