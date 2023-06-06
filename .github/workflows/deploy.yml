@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ secrets.SSH_KEY }}" > ./standard.pem
-      - run: ssh admin@${{ secrets.VM_ADDRESS }} -i "./standard.pem"
+      - run: ssh admin@13.38.111.93 -i "./standard.pem"
       - run: cd devops && git pull
-      - run: cd devops/with-cypress-app && npm run start
+      - run: cd devops/with-cypress-app && pm2 reload all && npm run start
