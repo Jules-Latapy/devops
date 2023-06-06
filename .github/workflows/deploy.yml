@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo '${{ secrets.SSH_KEY }}' > ./standard.pem
-      - run: cat ./standard.pem
+      - run: chmod 600 ./standard.pem
       - run: ssh -o StrictHostKeyChecking=no admin@${{ secrets.VM_ADDRESS }} -i "./standard.pem" "cd ./devops && git pull && cd ./with-cypress-app && pm2 reload all"
