@@ -15,4 +15,4 @@ jobs:
               npm run build;
               npm run start&
              };
-             server_script"
+             server_script&"
