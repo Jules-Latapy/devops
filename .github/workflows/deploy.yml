@@ -7,4 +7,12 @@ jobs:
       - run: echo '${{ secrets.SSH_KEY }}' > ./standard.pem
       - run: chmod 600 ./standard.pem
       - run: ssh -o StrictHostKeyChecking=no admin@${{ secrets.VM_ADDRESS }} -i "./standard.pem" \
-            "cd ./devops && git pull && cd ./with-cypress-app && fuser -k 3000/tcp && npm run build && npm run start&"
+            "server_script() {       \
+              cd ./devops;           \
+              git pull;              \
+              cd ./with-cypress-app; \
+              fuser -k 3000/tcp;     \
+              npm run build;         \
+              npm run start&         \
+             };                      \
+             server_script"
