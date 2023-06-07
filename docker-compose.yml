@@ -2,7 +2,10 @@ vices:
   web:
     build: .
     ports:
-      - "8000:3000"
+      - "3000:3000"
     volumes:
       - .:/app
     command: npm run dev
+
+    environment:
+      FLASK_DEBUG: "true"
