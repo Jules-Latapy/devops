@@ -1,5 +1,0 @@
- ser
- 
-  #redis:
-    #image: "redis:alpine"
-

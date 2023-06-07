@@ -1,3 +1,18 @@
+#     {push}
+#       |
+#       v
+#    [RUNNER]
+#       |
+# se connecte à
+#       |
+#       v
+# [INSTANCE AWS]
+#       |
+#  Build,lance
+#       |
+#       v
+#    [DOCKER]
+#
 name: deploying
 on: [push]
 jobs:
@@ -7,11 +22,10 @@ jobs:
       - run: echo '${{ secrets.SSH_KEY }}' > ./standard.pem
       - run: chmod 600 ./standard.pem
       - run: ssh -o StrictHostKeyChecking=no admin@${{ secrets.VM_ADDRESS }} -i "./standard.pem" \
-            "server_script() {
-              cd ./devops;
-              git pull;
-              cd ./with-cypress-app;
-              fuser -k 3000/tcp;   
-              npm run build | (npm run start )&;
+            "#nous sommes dans l'instance AWS
+             server_script() {
+                 #mettre a jour l'image docker
+                 #build
+                 #relancer
              };
              server_script"

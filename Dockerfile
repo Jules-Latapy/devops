@@ -10,8 +10,8 @@ ADD . /app/
 
 WORKDIR /app
 
-RUN cd with-cypress-app && npm install && npm run build
+RUN npm install && npm run build
 
 EXPOSE 3000
 
-CMD cd with-cypress-app && npm run start
+CMD npm run start
