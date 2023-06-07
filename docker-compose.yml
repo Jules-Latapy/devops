@@ -1,11 +1,23 @@
-vices:
-  web:
-    build: .
-    ports:
-      - "3000:3000"
-    volumes:
-      - .:/app
-    command: npm run dev
+# vices:
+#   web:
+#     build: .
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - .:/app
+#     command: npm run dev
 
-    environment:
-      FLASK_DEBUG: "true"
+#     environment:
+#       FLASK_DEBUG: "true"
+
+#   db:
+#     image: postgres:15
+#     restart: always
+#     environment:
+#       POSTGRES_PASSWORD: otto_dix
+
+#   adminer:
+#     image: adminer
+#     restart: always
+#     ports:
+#       - 8080:8080

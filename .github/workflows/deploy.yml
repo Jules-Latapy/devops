@@ -8,7 +8,7 @@
 #       v
 # [INSTANCE AWS]
 #       |
-#  Build,lance
+#  Build&lance
 #       |
 #       v
 #    [DOCKER]
@@ -24,8 +24,6 @@ jobs:
       - run: ssh -o StrictHostKeyChecking=no admin@${{ secrets.VM_ADDRESS }} -i "./standard.pem" \
             "#nous sommes dans l'instance AWS
              server_script() {
-                 #mettre a jour l'image docker
-                 #build
-                 #relancer
+                 docker compose -f docker-compose.prod.yml up -d --pull always;
              };
              server_script"
