@@ -13,8 +13,8 @@ jobs:
           path: 'with-cypress-app/node_modules'
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: ls
-      - run: cd with-cypress-app && npm install
-      - run: cd with-cypress-app && npm run build
+      - run: npm install
+      - run: npm run build
 
 
   test:
